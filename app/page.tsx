@@ -207,6 +207,7 @@ export default function HomePage() {
             </div>
             <Button
               variant="outline"
+              nativeButton={false}
               render={
                 <Link href="/community">
                   Explore gallery
@@ -275,6 +276,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <Button
                   size="lg"
+                  nativeButton={false}
                   render={
                     <Link href="/chat">
                       Start building free
@@ -285,6 +287,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
+                  nativeButton={false}
                   render={<Link href="/community">Browse community</Link>}
                 />
               </div>

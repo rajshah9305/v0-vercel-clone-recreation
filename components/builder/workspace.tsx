@@ -69,6 +69,7 @@ export function Workspace() {
             variant="ghost"
             size="sm"
             className="text-muted-foreground"
+            nativeButton={false}
             render={
               <Link href="/dashboard">
                 <ChevronLeft className="size-4" />

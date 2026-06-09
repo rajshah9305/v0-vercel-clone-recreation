@@ -48,10 +48,12 @@ export function SiteHeader() {
             variant="ghost"
             size="sm"
             className="hidden sm:inline-flex"
+            nativeButton={false}
             render={<Link href="/dashboard">Sign in</Link>}
           />
           <Button
             size="sm"
+            nativeButton={false}
             render={<Link href="/chat">Start building</Link>}
           />
           <Button
