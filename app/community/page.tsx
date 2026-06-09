@@ -15,7 +15,7 @@ export default function CommunityPage() {
         <section className="relative overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-grid opacity-50" />
           <div className="pointer-events-none absolute -top-32 left-1/2 size-[480px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" />
-          <div className="relative mx-auto max-w-7xl px-6 py-16 text-center">
+          <div className="relative mx-auto max-w-7xl px-6 py-20 text-center">
             <span className="text-sm font-medium text-primary">Community</span>
             <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight md:text-6xl">
               Explore what people are building
@@ -27,7 +27,7 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-12">
+        <section className="mx-auto max-w-7xl px-6 py-16">
           <CommunityGallery />
         </section>
       </main>

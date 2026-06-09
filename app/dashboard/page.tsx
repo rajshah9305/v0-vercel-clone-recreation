@@ -12,7 +12,7 @@ export default function DashboardPage() {
     <div className="flex min-h-screen flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <div className="mx-auto max-w-7xl px-6 py-10">
+        <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="mb-8">
             <h1 className="text-3xl font-semibold tracking-tight">
               Welcome back

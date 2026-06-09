@@ -25,20 +25,29 @@ export function Workspace() {
       toast.error('Generation failed. Please check your connection and retry.'),
   })
 
+  // Utility to get current API config from localStorage
+  const getApiConfig = () => {
+    if (typeof window === 'undefined') return {}
+    try {
+      const saved = localStorage.getItem('aiConfig')
+      return saved ? JSON.parse(saved) : {}
+    } catch {
+      return {}
+    }
+  }
+
   // Auto-send the prompt passed from the landing page once.
   useEffect(() => {
     if (initialPrompt && !sentInitial.current) {
       sentInitial.current = true
-      const config = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('aiConfig') || '{}') : {}
-      sendMessage({ text: initialPrompt }, { body: { config } })
+      sendMessage({ text: initialPrompt }, { body: { config: getApiConfig() } })
     }
   }, [initialPrompt, sendMessage])
 
   function handleSubmit() {
     const text = input.trim()
     if (!text) return
-    const config = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('aiConfig') || '{}') : {}
-    sendMessage({ text }, { body: { config } })
+    sendMessage({ text }, { body: { config: getApiConfig() } })
     setInput('')
   }
 
