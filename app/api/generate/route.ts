@@ -1,5 +1,5 @@
 import { streamText, convertToModelMessages, type UIMessage } from 'ai'
-import { openai } from '@ai-sdk/openai'
+import { openai, createOpenAI } from '@ai-sdk/openai'
 
 export const maxDuration = 60
 
@@ -16,10 +16,23 @@ RULES:
 - Do NOT add any explanation after the code block.`
 
 export async function POST(req: Request) {
-  const { messages }: { messages: UIMessage[] } = await req.json()
+  const { messages, config }: { messages: UIMessage[]; config?: any } =
+    await req.json()
+
+  let model = openai('gpt-4o')
+
+  if (config?.apiKey) {
+    const customOpenai = createOpenAI({
+      apiKey: config.apiKey,
+      baseURL: config.baseUrl || undefined,
+    })
+    model = customOpenai(config.modelName || 'gpt-4o')
+  } else if (config?.modelName) {
+    model = openai(config.modelName)
+  }
 
   const result = streamText({
-    model: openai('gpt-4o'),
+    model,
     system: SYSTEM,
     messages: await convertToModelMessages(messages),
   })

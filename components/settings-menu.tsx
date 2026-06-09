@@ -23,19 +23,21 @@ export function SettingsMenu() {
   const [config, setConfig] = useState<ApiConfig>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('aiConfig')
-      return saved ? JSON.parse(saved) : { apiKey: '', baseUrl: '', modelName: 'gpt-4' }
+      return saved
+        ? JSON.parse(saved)
+        : { apiKey: '', baseUrl: '', modelName: 'gpt-4o' }
     }
-    return { apiKey: '', baseUrl: '', modelName: 'gpt-4' }
+    return { apiKey: '', baseUrl: '', modelName: 'gpt-4o' }
   })
 
   const AI_MODELS = [
-    'gpt-4',
+    'gpt-4o',
+    'gpt-4o-mini',
     'gpt-4-turbo',
-    'gpt-3.5-turbo',
-    'claude-3-opus',
-    'claude-3-sonnet',
-    'mistral-large',
-    'llama-2-70b',
+    'gpt-4',
+    'claude-3-5-sonnet-latest',
+    'claude-3-opus-latest',
+    'mistral-large-latest',
   ]
 
   useEffect(() => {
