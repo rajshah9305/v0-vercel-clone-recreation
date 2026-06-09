@@ -6,6 +6,7 @@ import { Menu } from 'lucide-react'
 import { useState } from 'react'
 import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
+import { SettingsMenu } from '@/components/settings-menu'
 import { cn } from '@/lib/utils'
 
 const NAV = [
@@ -56,6 +57,7 @@ export function SiteHeader() {
             nativeButton={false}
             render={<Link href="/chat">Start building</Link>}
           />
+          <SettingsMenu />
           <Button
             variant="ghost"
             size="icon"
