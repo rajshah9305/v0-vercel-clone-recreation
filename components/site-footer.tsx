@@ -1,18 +1,39 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 
-const COLS = [
+type FooterLink = { label: string; href: string }
+type FooterColumn = { title: string; links: FooterLink[] }
+
+const COLS: FooterColumn[] = [
   {
     title: 'Product',
-    links: ['Builder', 'Community', 'Dashboard', 'Pricing', 'Changelog'],
+    links: [
+      { label: 'Builder', href: '/chat' },
+      { label: 'Community', href: '/community' },
+      { label: 'Dashboard', href: '/dashboard' },
+      { label: 'Pricing', href: '#' },
+      { label: 'Changelog', href: '#' },
+    ],
   },
   {
     title: 'Resources',
-    links: ['Docs', 'Templates', 'Guides', 'Components', 'API'],
+    links: [
+      { label: 'Docs', href: '#' },
+      { label: 'Templates', href: '#' },
+      { label: 'Guides', href: '#' },
+      { label: 'Components', href: '#' },
+      { label: 'API', href: '#' },
+    ],
   },
   {
     title: 'Company',
-    links: ['About', 'Blog', 'Careers', 'Customers', 'Contact'],
+    links: [
+      { label: 'About', href: '#' },
+      { label: 'Blog', href: '#' },
+      { label: 'Careers', href: '#' },
+      { label: 'Customers', href: '#' },
+      { label: 'Contact', href: '#' },
+    ],
   },
 ]
 
@@ -33,12 +54,12 @@ export function SiteFooter() {
               <h4 className="mb-3 text-sm font-medium">{col.title}</h4>
               <ul className="space-y-2">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <Link
-                      href="#"
+                      href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      {link}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
