@@ -7,6 +7,7 @@ import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
 import { ChevronLeft, Rocket } from 'lucide-react'
 import { toast } from 'sonner'
+import { SettingsMenu } from '@/components/settings-menu'
 import { ChatPanel } from '@/components/builder/chat-panel'
 import { PreviewPanel } from '@/components/builder/preview-panel'
 import { Button } from '@/components/ui/button'
@@ -28,14 +29,16 @@ export function Workspace() {
   useEffect(() => {
     if (initialPrompt && !sentInitial.current) {
       sentInitial.current = true
-      sendMessage({ text: initialPrompt })
+      const config = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('aiConfig') || '{}') : {}
+      sendMessage({ text: initialPrompt }, { body: { config } })
     }
   }, [initialPrompt, sendMessage])
 
   function handleSubmit() {
     const text = input.trim()
     if (!text) return
-    sendMessage({ text })
+    const config = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('aiConfig') || '{}') : {}
+    sendMessage({ text }, { body: { config } })
     setInput('')
   }
 
@@ -80,6 +83,8 @@ export function Workspace() {
           <span className="hidden text-sm text-muted-foreground sm:inline">/</span>
           <span className="truncate text-sm font-medium">Untitled build</span>
         </div>
+        <div className="flex items-center gap-2">
+        <SettingsMenu />
         <Button
           size="sm"
           onClick={() =>
@@ -92,6 +97,7 @@ export function Workspace() {
           <Rocket className="size-4" />
           <span className="hidden sm:inline">Deploy</span>
         </Button>
+        </div>
       </header>
 
       {/* Split layout */}
