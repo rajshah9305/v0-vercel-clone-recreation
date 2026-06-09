@@ -55,7 +55,7 @@ export function ChatPanel({
         ))}
 
         {status === 'submitted' && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground animate-fade-in">
             <Loader2 className="size-4 animate-spin text-primary" />
             Thinking…
           </div>
@@ -113,8 +113,8 @@ function MessageBubble({ message }: { message: UIMessage }) {
 
   if (message.role === 'user') {
     return (
-      <div className="flex justify-end">
-        <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-primary px-3.5 py-2.5 text-sm text-primary-foreground">
+      <div className="flex justify-end animate-slide-in-right">
+        <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-primary px-3.5 py-2.5 text-sm text-primary-foreground shadow-sm shadow-primary/20">
           {text}
         </div>
       </div>
@@ -124,7 +124,7 @@ function MessageBubble({ message }: { message: UIMessage }) {
   const { intro, code, streaming } = parseGeneration(text)
 
   return (
-    <div className="flex gap-2.5">
+    <div className="flex gap-2.5 animate-slide-up">
       <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md bg-primary text-primary-foreground">
         <svg viewBox="0 0 24 24" className="size-3.5" fill="none" aria-hidden="true">
           <path

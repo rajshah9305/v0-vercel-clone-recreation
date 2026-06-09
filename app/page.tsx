@@ -106,7 +106,7 @@ export default function HomePage() {
               required.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-10 animate-scale-in">
               <HeroPrompt />
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function HomePage() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-7xl px-6 py-24">
+        <section className="mx-auto max-w-7xl px-6 py-24 animate-slide-up">
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-primary">
               Everything you need
@@ -147,7 +147,7 @@ export default function HomePage() {
             {FEATURES.map((f) => (
               <div
                 key={f.title}
-                className="group bg-card p-7 transition-colors hover:bg-accent"
+                className="group bg-card p-7 transition-all duration-300 hover:bg-accent hover:shadow-inner"
               >
                 <div className="grid size-10 place-items-center rounded-lg bg-secondary text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <f.icon className="size-5" />

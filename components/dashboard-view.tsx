@@ -135,11 +135,12 @@ export function DashboardView() {
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((p) => (
+          {filtered.map((p, i) => (
             <button
               key={p.id}
               onClick={() => router.push('/chat')}
-              className="group flex flex-col rounded-xl border border-border bg-card p-5 text-left transition-colors hover:border-primary/40"
+              style={{ animationDelay: `${i * 50}ms` }}
+              className="group flex flex-col rounded-xl border border-border bg-card p-5 text-left transition-all duration-300 animate-slide-up hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
             >
               <div className="flex items-start justify-between gap-2">
                 <div className="flex items-center gap-2">
