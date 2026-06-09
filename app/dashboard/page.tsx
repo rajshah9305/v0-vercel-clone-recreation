@@ -15,7 +15,7 @@ export default function DashboardPage() {
         <div className="mx-auto max-w-7xl px-6 py-10">
           <div className="mb-8">
             <h1 className="text-3xl font-semibold tracking-tight">
-              Welcome back, Alex
+              Welcome back
             </h1>
             <p className="mt-1 text-muted-foreground">
               Pick up where you left off or start something new.
