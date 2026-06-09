@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { useChat } from '@ai-sdk/react'
 import { DefaultChatTransport } from 'ai'
-import { ChevronLeft, Rocket } from 'lucide-react'
+import { ChevronLeft, Loader2, Rocket } from 'lucide-react'
 import { toast } from 'sonner'
 import { SettingsMenu } from '@/components/settings-menu'
 import { ChatPanel } from '@/components/builder/chat-panel'
@@ -63,6 +63,18 @@ export function Workspace() {
     }
   }, [messages, status])
 
+  const [isDeploying, setIsDeploying] = useState(false)
+
+  function handleDeploy() {
+    setIsDeploying(true)
+    setTimeout(() => {
+      setIsDeploying(false)
+      toast.success('Deployed to forge.app/untitled-build', {
+        description: 'Your build is now live.',
+      })
+    }, 2000)
+  }
+
   return (
     <div className="flex h-screen flex-col bg-background">
       {/* Top bar */}
@@ -87,15 +99,17 @@ export function Workspace() {
         <SettingsMenu />
         <Button
           size="sm"
-          onClick={() =>
-            toast.success('Deployed to forge.app/untitled-build', {
-              description: 'Your build is now live.',
-            })
-          }
-          disabled={!code}
+          onClick={handleDeploy}
+          disabled={!code || isDeploying}
         >
-          <Rocket className="size-4" />
-          <span className="hidden sm:inline">Deploy</span>
+          {isDeploying ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <Rocket className="size-4" />
+          )}
+          <span className="hidden sm:inline">
+            {isDeploying ? 'Deploying...' : 'Deploy'}
+          </span>
         </Button>
         </div>
       </header>

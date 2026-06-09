@@ -153,11 +153,11 @@ export function PreviewPanel({ code, isStreaming, version }: Props) {
       </div>
 
       {/* Body */}
-      <div className="relative min-h-0 flex-1">
+      <div className="relative min-h-0 flex-1 overflow-hidden">
         {!hasCode ? (
           <EmptyState />
         ) : tab === 'preview' ? (
-          <div className="flex h-full items-stretch justify-center bg-[oklch(0.13_0.004_285)] p-0 sm:p-4">
+          <div className="flex h-full items-stretch justify-center bg-[oklch(0.13_0.004_285)] p-0 sm:p-4 animate-fade-in">
             <div
               className={cn(
                 'h-full overflow-hidden bg-white transition-all duration-300 sm:rounded-lg sm:border sm:border-border sm:shadow-xl',
@@ -174,7 +174,9 @@ export function PreviewPanel({ code, isStreaming, version }: Props) {
             </div>
           </div>
         ) : (
-          <CodeBlock code={code ?? ''} />
+          <div className="h-full animate-fade-in">
+            <CodeBlock code={code ?? ''} />
+          </div>
         )}
       </div>
 

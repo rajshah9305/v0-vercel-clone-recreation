@@ -62,10 +62,11 @@ export function CommunityGallery() {
 
       {/* Grid */}
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((b) => (
+        {filtered.map((b, i) => (
           <article
             key={b.id}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/40"
+            style={{ animationDelay: `${i * 50}ms` }}
+            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 animate-slide-up hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1"
           >
             <div
               className="relative aspect-video bg-dots"

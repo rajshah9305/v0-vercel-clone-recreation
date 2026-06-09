@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { ArrowUp, Paperclip, Sparkles } from 'lucide-react'
+import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { STARTER_PROMPTS } from '@/lib/data'
 
@@ -23,7 +24,7 @@ export function HeroPrompt() {
           e.preventDefault()
           submit(value)
         }}
-        className="rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-black/40 ring-1 ring-primary/10 transition-colors focus-within:border-primary/40"
+        className="rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-black/40 ring-1 ring-primary/10 transition-all duration-300 focus-within:border-primary/40 focus-within:ring-primary/20 focus-within:ring-4"
       >
         <textarea
           value={value}
@@ -44,6 +45,9 @@ export function HeroPrompt() {
             variant="ghost"
             size="sm"
             className="text-muted-foreground"
+            onClick={() => toast.info('Image attachment is coming soon!', {
+              description: 'You will be able to build from screenshots shortly.'
+            })}
           >
             <Paperclip className="size-4" />
             Attach
