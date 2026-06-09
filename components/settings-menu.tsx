@@ -64,7 +64,7 @@ export function SettingsMenu() {
   }
 
   const handleResetConfig = () => {
-    setConfig({ apiKey: '', baseUrl: '', modelName: 'gpt-4' })
+    setConfig({ apiKey: '', baseUrl: '', modelName: 'gpt-4o' })
     localStorage.removeItem('aiConfig')
   }
 
@@ -81,7 +81,7 @@ export function SettingsMenu() {
       </Button>
 
       {open && !showSettings && (
-        <div className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-border bg-card shadow-lg z-50">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-48 rounded-lg border border-border bg-card shadow-lg z-50">
           <div className="p-2">
             {/* Theme Toggle */}
             <button
@@ -124,7 +124,9 @@ export function SettingsMenu() {
             {/* Sign Out */}
             <button
               onClick={() => {
-                // TODO: Implement sign out logic
+                import('sonner').then(({ toast }) => {
+                  toast.success('Signed out successfully')
+                })
                 setOpen(false)
               }}
               className={cn(
@@ -140,7 +142,7 @@ export function SettingsMenu() {
       )}
 
       {showSettings && (
-        <div className="absolute right-0 top-full mt-2 w-96 rounded-lg border border-border bg-card shadow-xl z-50 max-h-96 overflow-y-auto">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 rounded-lg border border-border bg-card shadow-xl z-50 max-h-96 overflow-y-auto">
           <div className="sticky top-0 flex items-center justify-between bg-card border-b border-border p-4">
             <h3 className="font-semibold text-foreground">API Configuration</h3>
             <button

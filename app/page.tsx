@@ -86,7 +86,7 @@ export default function HomePage() {
         <section className="relative overflow-hidden border-b border-border">
           <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
           <div className="pointer-events-none absolute -top-40 left-1/2 size-[640px] -translate-x-1/2 rounded-full bg-primary/15 blur-[160px]" />
-          <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 text-center md:pt-28">
+          <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-16 text-center md:pt-24">
             <Link
               href="/community"
               className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
@@ -129,7 +129,7 @@ export default function HomePage() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-7xl px-6 py-24 animate-slide-up">
+        <section className="mx-auto max-w-7xl px-6 py-20 animate-slide-up">
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-primary">
               Everything you need
@@ -163,7 +163,7 @@ export default function HomePage() {
 
         {/* How it works */}
         <section className="border-y border-border bg-card/40">
-          <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="mx-auto max-w-2xl text-center">
               <span className="text-sm font-medium text-primary">
                 How it works
@@ -195,7 +195,7 @@ export default function HomePage() {
         </section>
 
         {/* Showcase */}
-        <section className="mx-auto max-w-7xl px-6 py-24">
+        <section className="mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
               <span className="text-sm font-medium text-primary">
@@ -261,7 +261,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-7xl px-6 pb-24">
+        <section className="mx-auto max-w-7xl px-6 pb-20">
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-20 text-center">
             <div className="pointer-events-none absolute inset-0 bg-grid opacity-50" />
             <div className="pointer-events-none absolute -bottom-32 left-1/2 size-[480px] -translate-x-1/2 rounded-full bg-primary/15 blur-[140px]" />
